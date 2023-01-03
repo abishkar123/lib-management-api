@@ -1,8 +1,8 @@
-import UserSchema from "./UserSchema,js";
+import UserSchema from "./UserSchema.js";
 //user CRUD
 
 //create user 
- export const creatUser = userData =>{
+ export const createUser = userData =>{
     return UserSchema(userData).save()
 }; 
 

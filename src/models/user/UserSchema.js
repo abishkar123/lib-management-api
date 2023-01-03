@@ -1,5 +1,5 @@
 import mongoose from 'mongoose'
-import { Active } from '../../constant'
+import { Active } from '../../constant.js'
 const userSchema = new mongoose.Schema(
     {
         status:{
@@ -34,4 +34,4 @@ const userSchema = new mongoose.Schema(
         timestamps:true
     }
 );
-export default mogoose.model("User", userSchema);
+export default mongoose.model("User", userSchema);

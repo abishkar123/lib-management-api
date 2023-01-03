@@ -1,6 +1,6 @@
 import dotenv from 'dotenv'
  dotenv.config()
- import express from 'express'
+import express from 'express'
 
  const app = express()
  const PORT = process.env.NODE_ENV || 8000
@@ -8,11 +8,19 @@ import dotenv from 'dotenv'
  import { connectDB } from './src/config/dbConfig.js'
  connectDB();
 
+ // middleware
+ app.use(express.json());
+
+
+ // api router 
+ import userRouter from "./src/routers/userRouter.js"
+ app.use("/api/v1/user", userRouter)
+
  //  all uncaught request 
  app.use("*", (req, res, next) => {
     const error = {
-      message: "404 page not found!",
-      code: 404,
+      message: " system statuts is healthy!",
+     
     };
     next(error);
   });
